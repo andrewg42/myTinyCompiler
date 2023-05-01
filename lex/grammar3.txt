@@ -1,0 +1,24 @@
+#A for variables and keywords
+#l for letter except e
+#z for 1-9
+A->_|l|e|eB|_B|lB
+B->_|l|e|z|0|_B|lB|eB|zB|0B
+#C for separators
+C->,|;|(|)|[|]|{|}
+#D for operators
+D->+|-|*|/|%|&|^|=|>|<|>E|<E|=E|+E|-E|*E|/E
+E->=
+#F for integers
+F->z|zG|0
+G->z|0|zG|0G
+#H for the first half of scientific notation and float
+H->zI|0I
+I->zI|0I|.J|eK
+J->z|zN|0N
+N->z|0|zN|0N|eK
+#K for the second half of scientific notation
+K->+L|-L|z|zM
+L->z|zM
+M->z|0|zM|0M
+#S for the source
+S->A|C|D|F|H

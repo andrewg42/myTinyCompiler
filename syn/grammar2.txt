@@ -1,0 +1,50 @@
+# S for source
+# A for program
+# B for function
+S->A
+A->BA
+A->B
+# t for data type
+# i for identifier
+# C for parameters
+# D for statements
+B->ti(C){D}
+C->ti
+C->i
+C->ti,C
+# E for a statement
+D->ED
+D->E
+E->F
+E->G
+E->H
+E->I
+E->J
+E->K
+E->L
+E->Q
+# F for statement with return, r for 'return'
+F->rN;
+N->n
+N->i
+#
+G->f(M){D}
+M->LO;Y
+M->QO;Y
+Y->iRN
+O->NpN
+# H for 'while'
+H->w(O){D}
+#
+I->b;
+#
+J->c;
+# z for 'if'
+K->z(O){D}
+#
+L->ti=N;
+L->iRN;
+R->=
+R->o=
+#
+Q->ti;
