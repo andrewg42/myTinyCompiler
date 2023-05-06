@@ -72,7 +72,6 @@ void Input::buildTokenMap() {
                 t.token=="string"||t.token=="long"||t.token=="short"||
                 t.token=="char"||t.token=="void")
                 mp[t.token] = 't';
-            else mp[t.token] = 'y'; // TODO
         }
         if(t.type=="separators") {
             mp[t.token] = t.token[0];

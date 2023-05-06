@@ -10,8 +10,8 @@ A->B
 # D for statements
 B->ti(C){D}
 C->ti
-C->i
 C->ti,C
+C->@
 # E for a statement
 D->ED
 D->E

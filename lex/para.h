@@ -10,7 +10,7 @@
 #include <boost/unordered_set.hpp>
 #include <string>
 
-//#define DEBUG
+#define DEBUG
 
 const int MAXN=32;
 

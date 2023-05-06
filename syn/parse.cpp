@@ -269,6 +269,14 @@ void Parse::analyze(){
         inputToken = in->tokenTable[tokenIdx].token;
         inputChar = in->mp[inputToken];
         stateNum = states[states.size()-1];
+        for(int i{}; i<symbols.size(); ++i) std::cout << symbols[i];
+        std::cout << '\t';
+#ifdef DEBUG
+        for(int i{}; i<states.size(); ++i) std::cout << states[i];
+        std::cout << '\t';
+#endif
+        std::cout << inputChar << '\n';
+
         parseResult tmpRet = ACTIONandGOTO(stateNum, inputChar);
         switch(tmpRet.ret) {
             case ACCEPT: {
@@ -276,33 +284,42 @@ void Parse::analyze(){
                 return;
             }
             case SHIFT: {
+                std::cout << "Shift \n";
                 int tmpNum = tmpRet.num;
                 states.push_back(tmpNum);
                 symbols.push_back(inputChar);
                 ++tokenIdx;
-                std::cout << "\n";
                 break;
             }
             case REDUCE: {
+                std::cout << "Reduce \n";
                 char l = (char)tmpRet.num;
                 int n = tmpRet.message.size();
                 for(int i{}; i<n; ++i) symbols.pop_back();
                 symbols.push_back(l);
                 for(int i{}; i<n; ++i) states.pop_back();
-                int gotoNum = ACTIONandGOTO(states[states.size()-1], l).num;
-                if(-1 != gotoNum) {
-                    states.push_back(gotoNum);
-                }
-                else {
-                    std::cout << "syntax analysis error!\n";
-                    return;
+                break;
+            }
+            case GOTO: {
+                std::cout << "Goto \n";
+                int num = tmpRet.num;
+                if(num!=-1) {
+                    states.push_back(num);
                 }
                 break;
             }
             case ERROR: {
-                //tmpRet = ACTIONandGOTO(stateNum, '@');
-                std::cout << "syntax analysis error!\n";
-                return;
+                tmpRet = ACTIONandGOTO(stateNum, '@');
+                if(tmpRet.ret == ERROR) {
+                    std::cout << "syntax analysis error!\n";
+                    return;
+                }
+                else {
+                    std::cout << "insert @\n";
+                    states.push_back(tmpRet.num);
+                    symbols.push_back('@');
+                    break;
+                }
             }
             default: {
                 std::cout << "syntax analysis error!\n";

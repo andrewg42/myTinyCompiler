@@ -1,9 +1,10 @@
 **Introduction** <br>
-This project is the course design of "compiler principle", and also where I experimented with my newly learned cpp tricks. <br>
-I hope to complete the little compiler with LLVM in my spare time...
+This serves as my course design of *compiler principle* course during *2022 Spring*. <br>
+I will continue improving it for fun. And I will experiment with some newly learned cpp tricks on it since I have no other projects now:) <br>
 
 
-**TODO:** <br>
-CMake debug&release, <br>
+**To-do:** <br>
+CMake debug&release and cross-platform, <br>
 use benchmark to test the data structure, <br>
-LLVM
+semantic analyzer and LLVM backend, <br>
+
