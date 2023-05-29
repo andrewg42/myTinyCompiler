@@ -3,7 +3,13 @@ project(lex_analyzer)
 
 find_package(Boost REQUIRED COMPONENTS serialization)
 
-include_directories(/usr/include/boost)
+if(WIN32)
+    # TODO
+elseif(APPLE)
+    include_directories(/opt/homebrew/Cellar/boost/1.81.0_1/include/)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    include_directories(/usr/include/boost)
+endif()
 
 add_library(nfalib STATIC nfa.cpp)
 add_library(dfalib STATIC dfa.cpp)
