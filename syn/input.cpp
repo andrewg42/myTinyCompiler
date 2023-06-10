@@ -31,7 +31,7 @@ void Input::loadTokenTable() {
 
 
 void Input::showGrammar() {
-#ifdef DEBUG
+#ifndef NDEBUG
     std::cout << '\n';
     std::cout << "CFG: \n";
     for(int i{}; i<grammar.size(); ++i) {
@@ -43,7 +43,7 @@ void Input::showGrammar() {
 }
 
 void Input::showTokenTable() {
-#ifdef DEBUG
+#ifndef NDEBUG
     std::cout << '\n';
     std::cout << "TokenTable: \n";
     for(int i{}; i<tokenTable.size(); ++i) {

@@ -102,7 +102,7 @@ std::ostream& operator<<(std::ostream& os, const ns& s) {
 }
 
 void DFA::showDFA() {
-#ifdef DEBUG
+#ifndef NDEBUG
     std::cout << '\n';
     std::cout << "DFA: \n";
     std::cout << "nodes: \n";

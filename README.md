@@ -4,7 +4,6 @@ I will continue improving it for fun. And I will experiment with some newly lear
 
 
 **To-do:** <br>
-CMake debug&release and cross-platform, <br>
 use benchmark to test the data structure, <br>
 semantic analyzer and LLVM backend, <br>
 

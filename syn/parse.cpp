@@ -15,7 +15,7 @@ std::ostream& operator<<(std::ostream& os, std::vector<char> v) {
 }
 
 void Parse::showVnFirst() {
-#ifdef DEBUG
+#ifndef NDEBUG
     std::cout << "the FIRST set of Vn is:\n";
     for(auto it=Vn.begin(); it!=Vn.end(); ++it) {
         std::cout << *it << '\t';
@@ -155,7 +155,7 @@ State Parse::goTo(const State& state, const char c) {
 }
 
 void Parse::showStates() {
-#ifdef DEBUG
+#ifdef NDEBUG
     for(int i{}; i<C.size(); ++i) {
         std::cout << "I_" << i << ": \n";
         for(int j{}; j<C[i].items.size(); ++j) {
@@ -271,7 +271,7 @@ void Parse::analyze(){
         stateNum = states[states.size()-1];
         for(int i{}; i<symbols.size(); ++i) std::cout << symbols[i];
         std::cout << '\t';
-#ifdef DEBUG
+#ifndef NDEBUG
         for(int i{}; i<states.size(); ++i) std::cout << states[i];
         std::cout << '\t';
 #endif

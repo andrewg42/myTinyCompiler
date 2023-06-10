@@ -17,7 +17,7 @@ struct NFA { // nfa
     boost::unordered_set<char> nmp;
 
     NFA() {
-#ifdef DEBUF
+#ifndef NDEBUG
         std::cout << "NFA Create!\n";
 #endif
         node.reserve(MAXN);

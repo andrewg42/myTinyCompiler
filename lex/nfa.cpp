@@ -47,7 +47,7 @@ void NFA::createNFA(std::string& str) {
 
 
 void NFA::showNFA() {
-#ifdef DEBUG
+#ifndef NDEBUG
     std::cout << '\n';
     std::cout << "NFA: \n";
     for(int i{}; i<f.size(); ++i) {
